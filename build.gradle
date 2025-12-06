@@ -27,6 +27,17 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+        // redis 설정 
+        //compileOnly 'io.lettuce:lettuce-core:6.7.1.RELEASE'
+        // https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis
+        //implementation 'org.springframework.data:spring-data-redis:4.0.0'      
+        //lettuce 포함 
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+
+
 }
 
 tasks.named('test') {
