@@ -34,26 +34,26 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
 
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html","/chat/**","/", "/login", "/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
             )
 
             // --- OAuth2 Login ---
             .oauth2Login(oauth -> oauth
-                .successHandler(customAuthSuccessHandler) 
-                .authorizationEndpoint(auth -> auth
-		.authorizationRequestRepository(authorizationRequestRepository()))
-		.userInfoEndpoint(userInfo ->
+            .successHandler(customAuthSuccessHandler) 
+            .authorizationEndpoint(auth -> auth
+		    .authorizationRequestRepository(authorizationRequestRepository()))
+		    .userInfoEndpoint(userInfo ->
                     userInfo.userService(customOAuth2UserService)
                 )
             )
 
             // --- Logout (POST 로그아웃) ---
             .logout(logout -> logout
-                .logoutUrl("/logout")                    // POST /logout
-                .logoutSuccessUrl("/login")              // 로그아웃 후 이동
-                .invalidateHttpSession(true)             // 세션 무효화
-                .deleteCookies("JSESSIONID")             // Redis 세션 쿠키 삭제
+            .logoutUrl("/logout")                    // POST /logout
+            .logoutSuccessUrl("/login")              // 로그아웃 후 이동
+            .invalidateHttpSession(true)             // 세션 무효화
+            .deleteCookies("JSESSIONID")             // Redis 세션 쿠키 삭제
             );
 
         return http.build();

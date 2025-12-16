@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss}] %-5p %c{1} - %m%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+
+        <!-- 전체 DEBUG -->
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <!-- Spring Security 로그 활성화 -->
+        <Logger name="org.springframework.security" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- OAuth2 Client 로그 -->
+        <Logger name="org.springframework.security.oauth2" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Web / DispatcherServlet 로그 -->
+        <Logger name="org.springframework.web" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+    </Loggers>
+</Configuration>

@@ -6,8 +6,11 @@ import org.mybatis.spring.annotation.MapperScan;
 
 
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.FilterType;
+
+import com.example.demo.config.OpenAIConfig;
+
 import org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 
 
@@ -21,6 +24,7 @@ import org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslatio
       basePackages = "com.example.demo"
       )
 @MapperScan("com.example.mapper")
+@EnableConfigurationProperties(OpenAIConfig.class)
 public class DemoApplication {
 
 	public static void main(String[] args) {

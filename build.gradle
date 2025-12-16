@@ -14,8 +14,13 @@ java {
 	}
 }
 
+
 repositories {
 	mavenCentral()
+
+    maven {
+        url "https://repo.spring.io/milestone"
+    }
 }
 
 dependencies {
@@ -26,7 +31,7 @@ dependencies {
         // mybatis 의존성과 충돌
 //	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 //	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
         
@@ -42,10 +47,7 @@ dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
 
-        // redis 설정 
-        //compileOnly 'io.lettuce:lettuce-core:6.7.1.RELEASE'
-        // https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis
-        //implementation 'org.springframework.data:spring-data-redis:4.0.0'      
+        // redis 설정
         //lettuce 포함 
         implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
@@ -55,17 +57,24 @@ dependencies {
 
         // mybatis 설정 
         // https://mvnrepository.com/artifact/org.mybatis/mybatis
-        //implementation 'org.mybatis:mybatis:3.5.19'
         implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 
         runtimeOnly 'com.mysql:mysql-connector-j'
 
 
-        // swagger를 위한 openapi 
+        // swagger를 위한 openapi
         implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
 
+        /* NATS + JetStream 지원 */
+        implementation 'io.nats:jnats:2.17.6'
 
+        // openai 설정
+        implementation platform("org.springframework.ai:spring-ai-bom:1.0.0-M5")
+        implementation 'org.springframework.ai:spring-ai-openai'
 
+         /* JSON 직렬화 */
+        implementation 'com.google.code.gson:gson:2.10.1'
+ 
 }
 
 // log4j를 사용하기위해 logback 비활성화
