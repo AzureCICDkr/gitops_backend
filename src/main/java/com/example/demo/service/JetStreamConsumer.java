@@ -45,6 +45,7 @@ public class JetStreamConsumer {
         this.chatClient = chatClient;
     }
 
+    // message가  jetstream에 있을때만 메시지를 가져올수 있도록 수정 필요
     @PostConstruct
     public void start() {
         new Thread(this::consumeLoop).start();
@@ -61,7 +62,8 @@ public class JetStreamConsumer {
 
             while (true) {
                 for (Message msg : sub.fetch(1, Duration.ofSeconds(5))) {
-                    handle(msg);
+//                    handle(msg);
+                    log.debug("{}","consume message");
                 }
             }
 

@@ -42,6 +42,8 @@ public class ChatController {
 //    }
 
 
+
+
     private final JetStreamPublisher publisher;
 
     @Autowired
@@ -78,7 +80,7 @@ public class ChatController {
         try {
               HttpSession session = req.getSession(true);
               chatMessage.setSessionId(session.getId());
-              publisher.publish(chatMessage);
+//              publisher.publish(chatMessage);
               map.put("message","success");
               map.put("data",chatMessage);
               log.debug("=============== chatMessage={}",chatMessage.toString());

@@ -1,8 +1,10 @@
 package com.example.demo.config;
 
 
+import com.example.demo.dto.OpenAiChatProperties;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.openai.OpenAiChatModel;
+import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,8 +25,13 @@ public class OpenAIConfig {
     }
 
     @Bean
-    public OpenAiChatModel openAiChatModel(OpenAiApi openAiApi) {
-        return new OpenAiChatModel(openAiApi);
+    public OpenAiChatModel openAiChatModel(OpenAiApi openAiApi, OpenAiChatProperties props) {
+       OpenAiChatOptions openAiChatOptions = OpenAiChatOptions.builder()
+                .model(props.getModel())
+                .temperature(props.getTemperature())
+                .maxTokens(props.getMaxTokens())
+                .build();
+       return new OpenAiChatModel(openAiApi, openAiChatOptions);
     }
 
     @Bean

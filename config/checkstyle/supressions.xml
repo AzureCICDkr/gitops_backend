@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+
+    <!-- 특정 파일 전체에서 모든 체크 무시 -->
+    <suppress files=".*Test\.java" checks=".*"/>
+
+    <!-- 특정 패키지 전체 무시 -->
+    <suppress files="com/example/config/.*" checks=".*"/>
+
+    <!-- 특정 체크만 무시 -->
+    <suppress
+            files=".*Controller\.java"
+            checks="LineLength"/>
+
+    <!-- 특정 라인에서만 무시 -->
+    <suppress
+            files=".*Service\.java"
+            checks="MagicNumber"
+            lines="45"/>
+
+</suppressions>

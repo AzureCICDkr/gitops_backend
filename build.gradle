@@ -1,7 +1,9 @@
 plugins {
-        id 'java'
+    id 'java'
 	id 'org.springframework.boot' version '3.3.5'
 	id 'io.spring.dependency-management' version '1.1.7'
+    id 'checkstyle'
+
 }
 
 group = 'com.example'
@@ -54,7 +56,8 @@ dependencies {
         //redis 세션 저장소 설정 
         implementation 'org.springframework.session:spring-session-data-redis'
 
-
+// https://mvnrepository.com/artifact/junit/junit
+testImplementation 'junit:junit:4.13.2'
         // mybatis 설정 
         // https://mvnrepository.com/artifact/org.mybatis/mybatis
         implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
@@ -74,7 +77,13 @@ dependencies {
 
          /* JSON 직렬화 */
         implementation 'com.google.code.gson:gson:2.10.1'
- 
+
+
+        /* test */
+        // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+        testImplementation 'org.springframework.boot:spring-boot-starter-test:4.0.0'
+        // https://mvnrepository.com/artifact/junit/junit
+        testImplementation 'junit:junit:4.13.2'
 }
 
 // log4j를 사용하기위해 logback 비활성화
@@ -83,6 +92,16 @@ configurations {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
 }
+
+
+sourceSets {
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
+
 
 
 
