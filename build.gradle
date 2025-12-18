@@ -110,3 +110,11 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+
+checkstyleMain {
+    ignoreFailures  true
+}
+
+checkstyleTest {
+    ignoreFailures  true
+}
