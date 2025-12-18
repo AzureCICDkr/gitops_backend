@@ -5,15 +5,15 @@
 <module name="com.puppycrawl.tools.checkstyle.Checker">
 
     <!--- Suppression -->
-    <module name="SuppressionCommentFilter">
-        <property name="offCommentFormat" value="@checkstyle:off"/>
-        <property name="onCommentFormat" value="@checkstyle:on"/>
-    </module>
-    <module name="SuppressWithNearbyCommentFilter">
-        <property name="commentFormat" value="@checkstyle:ignore"/>
-        <property name="checkFormat" value=".*"/>
-        <property name="influenceFormat" value="0"/>
-    </module>
+<!--    <module name="SuppressionCommentFilter">-->
+<!--        <property name="offCommentFormat" value="@checkstyle:off"/>-->
+<!--        <property name="onCommentFormat" value="@checkstyle:on"/>-->
+<!--    </module>-->
+<!--    <module name="SuppressWithNearbyCommentFilter">-->
+<!--        <property name="commentFormat" value="@checkstyle:ignore"/>-->
+<!--        <property name="checkFormat" value=".*"/>-->
+<!--        <property name="influenceFormat" value="0"/>-->
+<!--    </module>-->
 
 
 </module>
