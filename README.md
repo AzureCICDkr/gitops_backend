@@ -35,6 +35,13 @@ OpenAI API 연동 필요
 
 ---
 
+## cors 설정 
+
+애플리케이션을 클라이언트와 바로 연동하지 않고 프록시 서버를 
+거쳐서 연동한다면 
+config/SecurityConfig.java의 cors 설정을 주석 처리
+할수도 있습니다. 
+
 ## 📂 Project Structure
 ```text
 src/main/java
